@@ -20,8 +20,14 @@ logbook.get("/", (req, res) => {
 
 // CREATE
 logbook.post("/", (req, res) => {
-    transactions.push(req.body);
-    res.status(200).send("Transaction added successfully...");
+    const newTransaction = req.body;
+    if(isValidTransaction(newTransaction)){
+        transactions.push(newTransaction);
+        res.status(200).send("Transaction added successfully...");
+    } else {
+        res.status(400).send(`Transaction format invalid\n\n${JSON.stringify(newTransaction)}`);
+    }
+        
 });
 
 // DELETE
@@ -47,5 +53,14 @@ logbook.put("/:id", (req, res) => {
         res.status(200).send("Transaction updated successfully...");
     }
 })
+
+function isValidTransaction(transaction){
+    const { id, date, description, category, merchant, amount } = transaction;
+
+    const hasExpectedKeys = id && date && description && category && merchant && typeof(amount) === "number";
+    const hasExtraKeys = Object.keys(transaction).length > 6
+    
+    return hasExpectedKeys && !hasExtraKeys;
+}
 
 module.exports = logbook;
