@@ -5,7 +5,7 @@ const transactions = require("../models/transactions");
 // SHOW
 logbook.get("/:id", (req, res) => {
     const { id } = req.params;
-    const index = transactions.findIndex( x => x.id === id);
+    const index = transactions.findIndex(x => x.id === id);
     if (index === -1)
         res.status(404).send(`Transaction with an id of '${id}' does not exist...`);
     else{
@@ -15,7 +15,11 @@ logbook.get("/:id", (req, res) => {
 
 // INDEX
 logbook.get("/", (req, res) => {
-    res.status(200).json(transactions);
+    const sortedTransactions = transactions.sort((x , y) => {
+        if (x.date > y.date) return -1;
+        else if(x.date < y.date) return 1;
+    });
+    res.status(200).json(sortedTransactions);
 });
 
 // CREATE
@@ -46,18 +50,21 @@ logbook.delete("/:id", (req, res) => {
 logbook.put("/:id", (req, res) => {
     const { id } = req.params;
     const index = transactions.findIndex(x => x.id === id);
+    const updatedTransaction = req.body
     if (index === -1){
         res.status(404).send(`Transaction with an id of '${id}' does not exist...`);
-    } else {
-        transactions[index] = req.body;
+    } else if (isValidTransaction(updatedTransaction)){
+        transactions[index] = updatedTransaction;
         res.status(200).send("Transaction updated successfully...");
+    } else {
+        res.status(400).send(`Transaction format invalid\n\n${JSON.stringify(updatedTransaction)}`);
     }
 })
 
 function isValidTransaction(transaction){
-    const { id, date, description, category, merchant, amount } = transaction;
+    const { id, date, description, category, merchant, amountInCents } = transaction;
 
-    const hasExpectedKeys = id && date && description && category && merchant && typeof(amount) === "number";
+    const hasExpectedKeys = id && date && description && category && merchant && typeof(amountInCents) === "number";
     const hasExtraKeys = Object.keys(transaction).length > 6
     
     return hasExpectedKeys && !hasExtraKeys;

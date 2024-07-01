@@ -8,16 +8,110 @@ Noteworthy features:
 - Editing transactions in your logbook
 - Displaying your logbook in sorted order
 
-## How to get started
-1. Clone this repository
-1. Navigate to the cloned repository's direcory on your command line. Then, run the following commands:
-    - `npm install` (This will install the libraries needed to run the program.)
-    - `touch .env`
-        - the contents of this file should be `PORT = 8888` or something simmilar
-    - `npm start`
+## REST
+**Base URL:** https://budget-logbook-server.onrender.com
 
-## Get all transactions
-Get the list of transactions using the /logbook endpoint.
+Available endpoints:
+```
+{
+    getAllTransactions: `https://budget-logbook-server.onrender.com/logbook`,
+
+    createNewTransaction: `https://budget-logbook-server.onrender.com/logbook`,
+
+    getOneTransaction: `https://budget-logbook-server.onrender.com/logbook/:id`,
+
+    deleteOneTransaction: `https://budget-logbook-server.onrender.com/logbook/:id,
+
+    editOneTransaction: `https://budget-logbook-server.onrender.com/logbook/:id
+}
 ```
 
+### Create one transaction:
+Create a new transaction with a POST request at the /logbook endpoint.
 ```
+https://budget-logbook-server.onrender.com/logbook/
+```
+```
+Request Body:
+
+{
+      "id": 'bls-2XB37',
+      "date": '2024-06-12',
+      "description": "Uncharted: Drake's Fortune",
+      "category": 'Shopping & Entertainment',
+      "merchant": 'eBay',
+      "amountInCents": 596
+}
+```
+```
+Transaction added successfully...
+```
+*Transaction objects must follow the format shown in the above example*
+
+### Get all transactions:
+Get the list of all transactions in chronological using the /logbook endpoint.
+
+```
+https://budget-logbook-server.onrender.com/logbook
+```
+```
+[
+    {
+      "id": 'bls-2XB37',
+      "date": '2024-06-12',
+      "description": "Uncharted: Drake's Fortune",
+      "category": 'Shopping & Entertainment',
+      "merchant": 'eBay',
+      "amountInCents": 596
+    },
+    ...
+]
+```
+
+### Get one transaction:
+Get the details about one transaction using the logbook/:id endpoint.
+```
+https://budget-logbook-server.onrender.com/logbook/:id
+```
+```
+{
+      "id": 'bls-2XB37',
+      "date": '2024-06-12',
+      "description": "Uncharted: Drake's Fortune",
+      "category": 'Shopping & Entertainment',
+      "merchant": 'eBay',
+      "amountInCents": 596
+}
+```
+
+### Edit one transaction:
+Update the values of any transaction with with a PUT request on the logbook/:id endpoint.
+```
+https://budget-logbook-server.onrender.com/logbook/:id
+```
+```
+Request Body:
+
+{
+      "id": 'bls-2XB37',
+      "date": '2024-06-12',
+      "description": "Uncharted: Drake's Fortune",
+      "category": 'Shopping & Entertainment',
+      "merchant": 'eBay',
+      "amountInCents": 596
+}
+```
+```
+Transaction updated successfully...
+```
+*Transaction objects must follow the format shown in the above example*
+
+### Delete one transaction:
+Remove a transaction from your logbook using the logbook/:id endpoint.
+```
+https://budget-logbook-server.onrender.com/logbook/:id
+```
+```
+Transaction deleted successfully...
+```
+

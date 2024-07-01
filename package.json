@@ -1,5 +1,5 @@
 {
-  "name": "financial-planner-server",
+  "name": "budget-logbook-server",
   "version": "1.0.0",
   "description": "This app is a logbook that allows users to keep track of spending. A beginner's backend database project",
   "main": "server.js",
