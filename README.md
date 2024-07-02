@@ -40,6 +40,8 @@ Request Body:
 }
 ```
 ```
+Response:
+
 Transaction added successfully...
 ```
 *Transaction objects must follow the format shown in the above example*
@@ -50,6 +52,8 @@ To view a list of all transactions, send a GET request to the /logbook endpoint.
 https://budget-logbook-server.onrender.com/logbook
 ```
 ```
+Response:
+
 [
       {
             id: 'bls-RQ51S',
@@ -69,6 +73,8 @@ To view any particular transaction, send a GET request to the /logbook/:id endpo
 https://budget-logbook-server.onrender.com/logbook/:id
 ```
 ```
+Response: 
+
 {
       id: 'bls-RQ51S',
       date: '2024-06-12',
@@ -97,6 +103,8 @@ Request Body:
 }
 ```
 ```
+Response: 
+
 Transaction updated successfully...
 ```
 *Transaction objects must follow the format shown in the above example*
@@ -107,5 +115,7 @@ To remove a transaction from your logbook, send a DELETE request to the /logbook
 https://budget-logbook-server.onrender.com/logbook/:id
 ```
 ```
+Response:
+
 Transaction deleted successfully...
 ```
