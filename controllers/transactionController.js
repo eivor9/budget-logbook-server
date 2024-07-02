@@ -25,11 +25,13 @@ logbook.get("/", (req, res) => {
 // CREATE
 logbook.post("/", (req, res) => {
     const newTransaction = req.body;
-    if(isValidTransaction(newTransaction)){
+    if (!isValidTransaction(newTransaction)){
+        res.status(400).send(`Transaction format invalid...\n\n${JSON.stringify(newTransaction)}`);
+    }else if(hasUniqueID(newTransaction)){
         transactions.push(newTransaction);
         res.status(200).send("Transaction added successfully...");
     } else {
-        res.status(400).send(`Transaction format invalid\n\n${JSON.stringify(newTransaction)}`);
+        res.status(400).send(`Transaction ID must be unique...\n\n${JSON.stringify(newTransaction)}`);
     }
         
 });
@@ -62,12 +64,18 @@ logbook.put("/:id", (req, res) => {
 })
 
 function isValidTransaction(transaction){
-    const { id, date, description, category, merchant, amountInCents } = transaction;
+    const { id, date, description, category, otherParty, amountInCents } = transaction;
 
-    const hasExpectedKeys = id && date && description && category && merchant && typeof(amountInCents) === "number";
+    const hasExpectedKeys = id && date && description && category && otherParty && typeof(amountInCents) === "number" && amountInCents >= 0;
     const hasExtraKeys = Object.keys(transaction).length > 6
     
     return hasExpectedKeys && !hasExtraKeys;
+}
+
+function hasUniqueID(transaction){
+    const { id } = transaction;
+    const ids = transactions.map( x => x.id );
+    return !ids.includes(id);
 }
 
 module.exports = logbook;

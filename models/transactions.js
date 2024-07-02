@@ -133,7 +133,7 @@ module.exports = [
       description: 'Utilities',
       category: 'Facilities and Overheads',
       otherParty: 'National Grid',
-      amountInCents: 1586
+      amountInCents: 15086
     },
     {
       id: 'bls-C2JTF',
