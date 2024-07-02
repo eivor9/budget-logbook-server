@@ -1,12 +1,12 @@
 # Budget Logbook - Server
 
-This app is designed to allow you to document a record of your financial transactions. Use it to categorize individual transactions and to keep track of spending over time.
+This app is designed to allow you to document a record of your financial transactions. Use it to keep track of spending over time.
 
 Noteworthy features:
 
 - Adding and removing transactions from your logbook
 - Editing transactions in your logbook
-- Displaying your logbook in sorted order
+- Viewing your logbook
 
 ## REST
 **Base URL:** https://budget-logbook-server.onrender.com
@@ -14,20 +14,16 @@ Noteworthy features:
 Available endpoints:
 ```
 {
-    getAllTransactions: `https://budget-logbook-server.onrender.com/logbook`,
-
     createNewTransaction: `https://budget-logbook-server.onrender.com/logbook`,
-
+    getAllTransactions: `https://budget-logbook-server.onrender.com/logbook`,
     getOneTransaction: `https://budget-logbook-server.onrender.com/logbook/:id`,
-
+    editOneTransaction: `https://budget-logbook-server.onrender.com/logbook/:id,
     deleteOneTransaction: `https://budget-logbook-server.onrender.com/logbook/:id,
-
-    editOneTransaction: `https://budget-logbook-server.onrender.com/logbook/:id
 }
 ```
 
-### Create one transaction:
-Create a new transaction with a POST request at the /logbook endpoint.
+### Creating a new transaction:
+To create a new transaction, send a POST request to the /logbook endpoint.
 ```
 https://budget-logbook-server.onrender.com/logbook/
 ```
@@ -48,9 +44,8 @@ Transaction added successfully...
 ```
 *Transaction objects must follow the format shown in the above example*
 
-### Get all transactions:
-Get the list of all transactions in chronological using the /logbook endpoint.
-
+### Viewing your transactions:
+To view a list of all transactions, send a GET request to the /logbook endpoint.
 ```
 https://budget-logbook-server.onrender.com/logbook
 ```
@@ -68,8 +63,8 @@ https://budget-logbook-server.onrender.com/logbook
 ]
 ```
 
-### Get one transaction:
-Get the details about one transaction using the logbook/:id endpoint.
+### Viewing a single transaction:
+To view a single transaction, send a GET request to the /logbook/:id endpoint.
 ```
 https://budget-logbook-server.onrender.com/logbook/:id
 ```
@@ -79,13 +74,13 @@ https://budget-logbook-server.onrender.com/logbook/:id
       "date": '2024-06-12',
       "description": "Uncharted: Drake's Fortune",
       "category": 'Shopping & Entertainment',
-      "merchant": 'eBay',
+      "merchant": 'Amazon',
       "amountInCents": 596
 }
 ```
 
-### Edit one transaction:
-Update the values of any transaction with with a PUT request on the logbook/:id endpoint.
+### Editing a transaction:
+To edit the details of any particular transaction, send a PUT repuest to the /logbook/:id endpoint.
 ```
 https://budget-logbook-server.onrender.com/logbook/:id
 ```
@@ -97,7 +92,7 @@ Request Body:
       "date": '2024-06-12',
       "description": "Uncharted: Drake's Fortune",
       "category": 'Shopping & Entertainment',
-      "merchant": 'eBay',
+      "merchant": "eBay",
       "amountInCents": 596
 }
 ```
@@ -106,8 +101,8 @@ Transaction updated successfully...
 ```
 *Transaction objects must follow the format shown in the above example*
 
-### Delete one transaction:
-Remove a transaction from your logbook using the logbook/:id endpoint.
+### Removing transactions:
+To remove a transaction from your logbook, send a DELETE request to the /logbook/:id endpoint.
 ```
 https://budget-logbook-server.onrender.com/logbook/:id
 ```
