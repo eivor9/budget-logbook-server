@@ -32,11 +32,11 @@ Request Body:
 
 {
       "id": 'bls-2XB37',
-      "date": '2024-06-12',
-      "description": "Purchase of fresh produce and ingredients",
+      "date": '2024-06-17',
+      "description": "Produce and ingredients",
       "category": 'Food and Beverage Purchases',
       "merchant": 'Farmer's Market',
-      "amountInCents": 100000
+      "amountInCents": 40734
 }
 ```
 ```
@@ -54,10 +54,10 @@ https://budget-logbook-server.onrender.com/logbook
       {
             "id": 'bls-2XB37',
             "date": '2024-06-17',
-            "description": "Purchase of fresh produce and ingredients",
+            "description": "Produce and ingredients",
             "category": 'Food and Beverage Purchases',
             "merchant": 'Farmer's Market',
-            "amountInCents": 100000
+            "amountInCents": 40734
       },
     ...
 ]
@@ -72,10 +72,10 @@ https://budget-logbook-server.onrender.com/logbook/:id
 {
       "id": 'bls-2XB37',
       "date": '2024-06-17',
-      "description": "Purchase of fresh produce and ingredients",
+      "description": "Produce and ingredients",
       "category": 'Food and Beverage Purchases',
       "merchant": 'Farmer's Market',
-      "amountInCents": 100000
+      "amountInCents": 40734
 }
 ```
 
@@ -90,10 +90,10 @@ Request Body:
 {
       "id": 'bls-2XB37',
       "date": '2024-06-16',
-      "description": "Purchase of fresh produce and ingredients",
+      "description": "Produce and ingredients",
       "category": 'Food and Beverage Purchases',
       "merchant": 'Farmer's Market',
-      "amountInCents": 100000
+      "amountInCents": 40734
 }
 ```
 ```
