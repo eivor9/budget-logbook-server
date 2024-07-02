@@ -1,13 +1,5 @@
 module.exports = [
     {
-      id: 'bls-KJU3W',
-      date: '2024-06-20',
-      description: 'Account Transfer',
-      category: 'Deposit',
-      merchant: 'Me',
-      amountInCents: 3000
-    },
-    {
       id: 'bls-682LH',
       date: '2024-06-20',
       description: 'Direct Deposit',
@@ -118,14 +110,6 @@ module.exports = [
       category: 'Restaurants & Dining',
       merchant: '7-Eleven',
       amountInCents: 1118
-    },
-    {
-      id: 'bls-AEQCH',
-      date: '2024-06-11',
-      description: 'Account Transfer',
-      category: 'Deposit',
-      merchant: 'Me',
-      amountInCents: 7500
     },
     {
       id: 'bls-P1BRC',
