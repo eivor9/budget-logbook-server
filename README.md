@@ -31,12 +31,12 @@ https://budget-logbook-server.onrender.com/logbook/
 Request Body:
 
 {
-      "id": 'bls-2XB37',
-      "date": '2024-06-17',
-      "description": "Produce and ingredients",
-      "category": 'Food and Beverage Purchases',
-      "merchant": 'Farmer's Market',
-      "amountInCents": 40734
+      id: 'bls-RQ51S',
+      date: '2024-06-12',
+      description: 'Meat',
+      category: 'Food and Beverage Purchases',
+      otherParty: 'Sons of a Butcher',
+      amountInCents: 185749
 }
 ```
 ```
@@ -52,12 +52,12 @@ https://budget-logbook-server.onrender.com/logbook
 ```
 [
       {
-            "id": 'bls-2XB37',
-            "date": '2024-06-17',
-            "description": "Produce and ingredients",
-            "category": 'Food and Beverage Purchases',
-            "merchant": 'Farmer's Market',
-            "amountInCents": 40734
+            id: 'bls-RQ51S',
+            date: '2024-06-12',
+            description: 'Meat',
+            category: 'Food and Beverage Purchases',
+            otherParty: 'Sons of a Butcher',
+            amountInCents: 185749
       },
     ...
 ]
@@ -70,12 +70,12 @@ https://budget-logbook-server.onrender.com/logbook/:id
 ```
 ```
 {
-      "id": 'bls-2XB37',
-      "date": '2024-06-17',
-      "description": "Produce and ingredients",
-      "category": 'Food and Beverage Purchases',
-      "merchant": 'Farmer's Market',
-      "amountInCents": 40734
+      id: 'bls-RQ51S',
+      date: '2024-06-12',
+      description: 'Meat',
+      category: 'Food and Beverage Purchases',
+      otherParty: 'Sons of a Butcher',
+      amountInCents: 185749
 }
 ```
 
@@ -88,12 +88,12 @@ https://budget-logbook-server.onrender.com/logbook/:id
 Request Body:
 
 {
-      "id": 'bls-2XB37',
-      "date": '2024-06-16',
-      "description": "Produce and ingredients",
-      "category": 'Food and Beverage Purchases',
-      "merchant": 'Farmer's Market',
-      "amountInCents": 40734
+      id: 'bls-RQ51S',
+      date: '2024-06-13',
+      description: 'Meat',
+      category: 'Food and Beverage Purchases',
+      otherParty: 'Sons of a Butcher',
+      amountInCents: 185749
 }
 ```
 ```
